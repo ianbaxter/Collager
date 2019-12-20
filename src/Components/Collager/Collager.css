@@ -1,11 +1,3 @@
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 10%;
-  color: var(--primary-text-color);
-}
-
 .Collager-container {
   display: flex;
   align-items: center;
@@ -17,25 +9,16 @@ header {
   color: var(--primary-text-color);
 }
 
-h2 {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-}
-
 .login-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   text-align: center;
   width: 80%;
 }
 
 .login-container p {
-  font-family: "Roboto Mono", monospace;
-  font-size: 20px;
+  font-size: var(--primary-font-size);
   margin-bottom: 40px;
 }
 
@@ -55,18 +38,22 @@ h2 {
 
 .spotify-btn:hover {
   color: #1db954;
-  background: black;
-  border: 5px solid #1db954;
 }
 
-.data-container {
+.authorized-container {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
 .collage-container {
   display: flex;
   height: 90%;
-  width: 100%;
 }

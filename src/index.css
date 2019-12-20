@@ -12,8 +12,11 @@ p {
   --app-background-color: #000000;
 
   /* font */
-  --main-font: "Roboto", sans-serif;
+  --main-font: "Roboto Mono", monospace;
 
   /* font color */
   --primary-text-color: white;
+
+  /* font size */
+  --primary-font-size: 20px;
 }

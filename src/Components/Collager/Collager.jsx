@@ -14,13 +14,12 @@ const Collager = () => {
 
   useEffect(() => {
     if (window.location.hash) {
-      // Get hash from response
+      // After spotify authorization get hash from response
       console.log("Getting hash from response");
       let hash = window.location.hash.substring(1).split("&");
       let accessToken = hash[0].split("=")[1];
       if (accessToken) {
         // Set the token
-        console.log("Setting token to: " + accessToken);
         setToken(accessToken);
         accessSpotifyApi(accessToken);
       }
@@ -38,7 +37,6 @@ const Collager = () => {
       },
       success: data => {
         console.log("Succefully fetched spotify data");
-        console.log(data);
         let myFavArtistsImgUrls = [];
         data.items.forEach(artist => {
           myFavArtistsImgUrls.push(artist.images[0].url);
@@ -80,14 +78,14 @@ const Collager = () => {
         </div>
       )}
       {token && (
-        <div className="data-container">
+        <div className="authorized-container">
           <header>
             <button className="spotify-btn" onClick={shuffleImgUrls}>
               Reorder
             </button>
           </header>
           <div className="collage-container">
-            <Cutout imgUrls={imgUrls} />{" "}
+            <Cutout imgUrls={imgUrls} />
           </div>
         </div>
       )}

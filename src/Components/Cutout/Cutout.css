@@ -19,9 +19,3 @@
   filter: invert(0);
   transition: 0.2s linear;
 }
-
-.artist-container p {
-  position: absolute;
-  z-index: 100;
-  font-weight: 700;
-}
