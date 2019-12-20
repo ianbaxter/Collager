@@ -31,7 +31,6 @@ npm start
 ```
 
 Go to http://localhost:3000/ to view the application.
-```
 
 ## License
 
