@@ -13,4 +13,7 @@ p {
 
   /* font */
   --main-font: "Roboto", sans-serif;
+
+  /* font color */
+  --primary-text-color: white;
 }

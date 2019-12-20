@@ -10,7 +10,6 @@ const Collager = () => {
   const scopes = ["user-top-read"];
 
   const [token, setToken] = useState(null);
-  const [favArtistsNames, setFavArtistsNames] = useState([]);
   const [imgUrls, setImgUrls] = useState([]);
 
   useEffect(() => {
@@ -40,26 +39,38 @@ const Collager = () => {
       success: data => {
         console.log("Succefully fetched spotify data");
         console.log(data);
-        let myFavArtistsNames = [];
         let myFavArtistsImgUrls = [];
         data.items.forEach(artist => {
-          myFavArtistsNames.push(artist.name);
           myFavArtistsImgUrls.push(artist.images[0].url);
         });
 
-        setFavArtistsNames(myFavArtistsNames);
         setImgUrls(myFavArtistsImgUrls);
       }
     });
+  }
+
+  function shuffleImgUrls() {
+    let shuffledImgUrls = [...imgUrls];
+    for (let i = shuffledImgUrls.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledImgUrls[i], shuffledImgUrls[j]] = [
+        shuffledImgUrls[j],
+        shuffledImgUrls[i]
+      ];
+    }
+
+    setImgUrls(shuffledImgUrls);
   }
 
   return (
     <div className="Collager-container">
       {!token && (
         <div className="login-container">
-          <p>Make a collage of your favourite artists!</p>
+          <p>
+            Make a barcode collage of your favourite artists, because why not.
+          </p>
           <a
-            className="login-btn"
+            className="spotify-btn"
             href={`${api}?client_id=${ClientID}&redirect_uri=${redirectUri}&scope=${scopes.join(
               "%20"
             )}&response_type=token&show_dialog=true`}
@@ -69,8 +80,15 @@ const Collager = () => {
         </div>
       )}
       {token && (
-        <div className="collage-container">
-          <Cutout imgUrls={imgUrls} />{" "}
+        <div className="data-container">
+          <header>
+            <button className="spotify-btn" onClick={shuffleImgUrls}>
+              Reorder
+            </button>
+          </header>
+          <div className="collage-container">
+            <Cutout imgUrls={imgUrls} />{" "}
+          </div>
         </div>
       )}
     </div>

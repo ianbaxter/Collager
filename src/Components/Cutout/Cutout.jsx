@@ -6,7 +6,6 @@ const Cutout = ({ imgUrls }) => {
   for (let i = 0; i < imgUrls.length; i++) {
     let cutout = (
       <div className="artist-container">
-        {/* <p>{favArtistsNames[i]}</p> */}
         <img src={imgUrls[i]} />
       </div>
     );

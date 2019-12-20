@@ -1,13 +1,20 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  color: var(--primary-text-color);
+}
+
 .Collager-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background: black;
-  color: white;
+  color: var(--primary-text-color);
 }
 
 h2 {
@@ -26,45 +33,40 @@ h2 {
   width: 80%;
 }
 
-.login-btn {
+.login-container p {
+  font-family: "Roboto Mono", monospace;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.spotify-btn {
   background: transparent;
   color: white;
-  padding: 15px;
-  margin-top: 40px;
-  border-radius: 20px;
+  letter-spacing: 0.05em;
+  padding: 12px;
+  border-radius: 10px;
   text-transform: uppercase;
   border: 5px solid #1db954;
   transition: color 0.3s linear;
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
 }
 
-.login-btn:hover {
+.spotify-btn:hover {
   color: #1db954;
   background: black;
   border: 5px solid #1db954;
 }
 
+.data-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .collage-container {
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
+  height: 90%;
   width: 100%;
-  background: black;
-}
-
-.artist-container {
-  display: flex;
-  flex-wrap: wrap;
-  background: black;
-}
-
-.artist-container img {
-  max-width: 10vw;
-}
-
-.artist-container p {
-  position: absolute;
-  z-index: 100;
-  font-weight: 700;
 }
