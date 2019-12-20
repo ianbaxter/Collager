@@ -2,7 +2,7 @@
 
 <img src="images/collager-screenshot.png" height="731"/>
 
-Create a barcode collage from your favourite spotify artists profile pictures using the Spotify API.
+Create a barcode collage from your favourite spotify artist's profile pictures using the Spotify Web API.
 
 ## Setup
 
