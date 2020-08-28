@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Cutout from "../Cutout/Cutout";
 
 const App = () => {
   const api = "https://accounts.spotify.com/authorize";
-  const ClientID = "87c75803145f4e2899fac3058de2699c";
-  const redirectUri = "http://localhost:3000/redirect";
+  const redirectUri =
+    process.env.NODE_ENV !== "production"
+      ? "http://localhost:3000/redirect"
+      : process.env.REACT_APP_REDIRECT_URI;
   const scopes = ["user-top-read"];
+
+  console.log(process.env.REACT_APP_REDIRECT_URI);
 
   const [token, setToken] = useState(null);
   const [imgUrls, setImgUrls] = useState([]);
@@ -15,37 +18,32 @@ const App = () => {
     if (window.location.hash) {
       // After spotify authorization get hash from response
       let hash = window.location.hash.substring(1).split("&");
-      let accessToken = hash[0].split("=")[1];
-      if (accessToken) {
-        // Set the token
-        setToken(accessToken);
-        accessSpotifyApi(accessToken);
+      let token = hash[0].split("=")[1];
+      if (token) {
+        // Set the token and fetch data
+        setToken(token);
+        fetch(
+          "https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term",
+          {
+            method: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            let myFavArtistsImgUrls = [];
+            data.items.forEach((artist) => {
+              myFavArtistsImgUrls.push(artist.images[0].url);
+            });
+            setImgUrls(myFavArtistsImgUrls);
+          })
+          .catch((err) => console.error(err));
       }
       window.location.hash = "";
     }
   }, []);
-
-  function accessSpotifyApi(token) {
-    fetch(
-      "https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term",
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        let myFavArtistsImgUrls = [];
-        data.items.forEach((artist) => {
-          myFavArtistsImgUrls.push(artist.images[0].url);
-        });
-
-        setImgUrls(myFavArtistsImgUrls);
-      })
-      .catch((err) => console.error(err));
-  }
 
   function shuffleImgUrls() {
     let shuffledImgUrls = [...imgUrls];
@@ -56,7 +54,6 @@ const App = () => {
         shuffledImgUrls[i],
       ];
     }
-
     setImgUrls(shuffledImgUrls);
   }
 
@@ -69,7 +66,9 @@ const App = () => {
           </p>
           <a
             className="spotify-btn"
-            href={`${api}?client_id=${ClientID}&redirect_uri=${redirectUri}&scope=${scopes.join(
+            href={`${api}?client_id=${
+              process.env.REACT_APP_CLIENT_ID
+            }&redirect_uri=${redirectUri}&scope=${scopes.join(
               "%20"
             )}&response_type=token&show_dialog=true`}
           >
@@ -85,7 +84,11 @@ const App = () => {
             </button>
           </header>
           <div className="collage-container">
-            <Cutout imgUrls={imgUrls} />
+            {imgUrls.map((imgUrl) => (
+              <div className="artist-container">
+                <img src={imgUrl} />
+              </div>
+            ))}
           </div>
         </main>
       )}
