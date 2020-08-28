@@ -1,11 +1,12 @@
-.Collager-container {
+.app {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
-  background: black;
+  height: 100vh;
+  width: 100vw;
+  background: var(--app-background-color);
+  font-family: var(--main-font);
   color: var(--primary-text-color);
 }
 
@@ -15,34 +16,29 @@
   flex-direction: column;
   text-align: center;
   width: 80%;
-}
-
-.login-container p {
-  font-size: var(--primary-font-size);
-  margin-bottom: 40px;
+  p {
+    font-size: var(--primary-font-size);
+    margin-bottom: 40px;
+  }
 }
 
 .spotify-btn {
-  background: transparent;
+  background-color: var(--app-background-color);
   color: white;
   letter-spacing: 0.05em;
   padding: 12px;
   border-radius: 10px;
   text-transform: uppercase;
   border: 5px solid #1db954;
-  transition: color 0.3s linear;
+  transition: color 0.3s;
   font-weight: 700;
-  text-decoration: none;
   cursor: pointer;
-}
-
-.spotify-btn:hover {
-  color: #1db954;
+  &:hover {
+    color: #1db954;
+  }
 }
 
 .authorized-container {
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
@@ -56,4 +52,5 @@ header {
 .collage-container {
   display: flex;
   height: 90%;
+  max-width: 900px;
 }

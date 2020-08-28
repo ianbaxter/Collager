@@ -1,0 +1,18 @@
+.artist-container {
+  display: flex;
+  cursor: pointer;
+  img {
+    width: 75%;
+    transition: 0.2s linear;
+    &:hover {
+      width: 100%;
+      filter: invert(0);
+      transition: 0.2s linear;
+    }
+    &:active {
+      width: 3000%;
+      filter: invert(0);
+      transition: 0.2s linear;
+    }
+  }
+}
