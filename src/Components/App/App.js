@@ -9,8 +9,6 @@ const App = () => {
       : process.env.REACT_APP_REDIRECT_URI;
   const scopes = ["user-top-read"];
 
-  console.log(process.env.REACT_APP_REDIRECT_URI);
-
   const [token, setToken] = useState(null);
   const [imgUrls, setImgUrls] = useState([]);
 
