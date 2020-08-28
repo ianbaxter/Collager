@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Collager/static/css/main.6c24e5d4.chunk.css",
-    "main.js": "/Collager/static/js/main.196faeed.chunk.js",
-    "main.js.map": "/Collager/static/js/main.196faeed.chunk.js.map",
+    "main.js": "/Collager/static/js/main.95d01a15.chunk.js",
+    "main.js.map": "/Collager/static/js/main.95d01a15.chunk.js.map",
     "runtime-main.js": "/Collager/static/js/runtime-main.45e0f117.js",
     "runtime-main.js.map": "/Collager/static/js/runtime-main.45e0f117.js.map",
     "static/js/2.135a79b4.chunk.js": "/Collager/static/js/2.135a79b4.chunk.js",
     "static/js/2.135a79b4.chunk.js.map": "/Collager/static/js/2.135a79b4.chunk.js.map",
     "index.html": "/Collager/index.html",
-    "precache-manifest.9a39de30a8a5ccdd89d4966e3afe9d46.js": "/Collager/precache-manifest.9a39de30a8a5ccdd89d4966e3afe9d46.js",
+    "precache-manifest.76133be5e59614c3ca6ca6ca540fd968.js": "/Collager/precache-manifest.76133be5e59614c3ca6ca6ca540fd968.js",
     "service-worker.js": "/Collager/service-worker.js",
     "static/css/main.6c24e5d4.chunk.css.map": "/Collager/static/css/main.6c24e5d4.chunk.css.map",
     "static/js/2.135a79b4.chunk.js.LICENSE": "/Collager/static/js/2.135a79b4.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.45e0f117.js",
     "static/js/2.135a79b4.chunk.js",
     "static/css/main.6c24e5d4.chunk.css",
-    "static/js/main.196faeed.chunk.js"
+    "static/js/main.95d01a15.chunk.js"
   ]
 }
